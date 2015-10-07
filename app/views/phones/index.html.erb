@@ -1,0 +1,36 @@
+<h3>In Stock</h3>
+<table class="table table-striped">
+	<thead>
+		<th>Brand</th>
+		<th>Color</th>
+		<th>IMEI</th>
+		<th>Price</th>
+		<th>Sold By</th>
+		<th>Sold Date</th>
+		<th>Status</th>
+		<th>Actions</th>
+	</thead>
+	<tbody>
+		<% @phones && @phones.each do |phone| %>
+			<tr>
+				<td><%= phone.brand%></td>
+				<td><%= phone.color%></td>
+				<td><%= phone.emei%></td>
+				<td><%= phone.price%></td>
+				<td><%= phone.slod_by%></td>
+				<td><%= phone.sold_date%></td>
+				<td><%= phone.status%></td>
+				<td>
+					<% if phone.status == "sold" %>
+						<%= link_to "Return", return_phone_path(phone), class: "btn btn-sm btn-warning"%>	
+					<% else %>
+						<%= link_to "sold", sold_phone_path(phone), class: "btn btn-sm btn-success"%>
+					<% end %>
+					<%= link_to "Edit", edit_phone_path(phone), class: "btn btn-sm btn-primary"%>
+					<%#= link_to 'Delete', phone, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-sm btn-danger" %>
+				</td>
+
+			</tr>
+		<% end %>			
+	</tbody>
+</table>
