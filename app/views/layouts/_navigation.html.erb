@@ -2,7 +2,7 @@
     <%= link_to "PhoneSale", phones_path, :class => 'brand' %>
     <ul class="nav">
 
-      <% if user_signed_in? && current_user.user_type=="admin" %>
+      <% if user_signed_in? %>
           <li>
             <%= link_to 'In Stock', phones_path %>
           </li>
@@ -10,13 +10,10 @@
             <%= link_to 'Add Product', new_phone_path %>
           </li>
           <li><%= link_to 'Sold Products', soldOut_phones_path %></li>
+          <li><%= link_to 'Your Profits', profits_path %></li>         
       <% end %>
       <% if user_signed_in? %>
-          <% if current_user.user_type=="admin" %>
-            <li class="offset4">
-          <% else %>
-              <li class="offset8">
-          <% end %>
+          <li class="offset3">
           <%= link_to 'Logout', destroy_user_session_path , method: :delete %>
           </li>
       <% else %>

@@ -4,7 +4,8 @@
 		<th>Brand</th>
 		<th>Color</th>
 		<th>IMEI</th>
-		<th>Price</th>
+		<th>Purchase Price</th>
+		<th>Sold Price</th>
 		<th>Sold By</th>
 		<th>Sold Date</th>
 		<th>Status</th>
@@ -17,12 +18,18 @@
 				<td><%= phone.color%></td>
 				<td><%= phone.emei%></td>
 				<td><%= phone.price%></td>
+				<td><%= phone.sold_price%></td>
 				<td><%= phone.slod_by%></td>
 				<td><%= phone.sold_date%></td>
 				<td><%= phone.status%></td>
 				<td>
 					<%= link_to "Return", return_phone_path(phone), class: "btn btn-sm btn-warning"%>	
 					<%= link_to "Edit", edit_phone_path(phone), class: "btn btn-sm btn-primary"%>
+					<% if !Profit.where(:phone_id=> phone.id, :user_id=> current_user.id).first.present? %>
+					<%= link_to "profit?", phone_profits_path(phone), :method=>"post",class: "btn btn-sm btn-success"%>
+					<% else %>
+						<%= link_to "Done!", "#",class: "btn btn-sm btn-info", :disabled=>true%>
+					<% end %>
 					<%#= link_to 'Delete', phone, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-sm btn-danger" %>
 				</td>
 

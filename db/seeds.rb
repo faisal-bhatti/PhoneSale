@@ -26,3 +26,17 @@ User.create!({
                  :password_confirmation=>"admin123",
                  :user_type=>"admin"
              })
+User.create!({
+                 :name=>"Faisal",
+                 :email=>"faisal@phonesales.com",
+                 :password=>"admin123",
+                 :password_confirmation=>"admin123",
+                 :user_type=>"user"
+             })
+User.create!({
+                 :name=>"Majid",
+                 :email=>"majid@phonesales.com",
+                 :password=>"admin123",
+                 :password_confirmation=>"admin123",
+                 :user_type=>"user"
+             })

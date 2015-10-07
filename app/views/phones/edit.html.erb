@@ -44,27 +44,9 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :price, class: "col-sm-3 control-label" %>
+          <%= f.label "Purchase price", class: "col-sm-3 control-label" %>
           <div class="col-sm-9 ">
             <%= f.text_field :price, class: "left-mar form-control" %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :sold_by, class: "col-sm-3 control-label" %>
-          <div class="col-sm-9">
-            <%#= f.text_field :slod_by, class: "left-mar form-control" %>
-            <select id="slod_by_id" name="phone[slod_by]">
-              <option>Majid</option>
-              <option>Faisal</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :sold_date, class: "col-sm-3 control-label" %>
-          <div class="col-sm-9 left-mar">
-            <%= f.date_select :sold_date, class: " form-control" %>
           </div>
         </div>
       <div class="col-sm-offset-3">

@@ -32,16 +32,19 @@ class PhonesController < ApplicationController
     	# respond_with @invitation
 	end
 
+	def sold_out
+	  @phone = Phone.find(params[:id])
+	  @phone.status = "sold"
+	  @phone.update_attributes(params[:phone])
+	  redirect_to phones_path, notice: 'Successfully sold.'
+	end
+
 	def sold
 		@phone = Phone.find params[:id]
-		@phone.status = "sold"
-		@phone.save!
-		@phones  =Phone.where(status: "sold")
-    	# redirect_to phones_path, notice: 'Successfully saved.'
 		respond_to do |format|
-	        format.html { redirect_to phones_path, notice: 'successfully sold.' }
-	        format.json {  render json: @phones}  
-	    end
+      format.html {  }
+      format.json {  render json: @phones}  
+    end
 	end
 
 	def return
@@ -65,6 +68,11 @@ class PhonesController < ApplicationController
 	end
 
 	def destroy
-	end
+    @phones = Phone.find(params[:id])
+    if @phones.destroy
+      flash[:notice] = 'Phone was successfully destroy.'
+      redirect_to phones_path
+    end
+  end
 
 end

@@ -1,0 +1,26 @@
+<h3>Your Income</h3>
+<table class="table table-striped">
+	<thead>
+		<th>Brand</th>
+		<th>Color</th>
+		<th>IMEI</th>
+		<th>Purchase Price</th>
+		<th>Sold Price</th>
+		<th>50% Profit</th>
+	</thead>
+	<tbody>
+		<% @profits && @profits.each do |profit| %>
+			<% phone = profit.phone %>
+			<tr>
+
+				<td><%= phone.brand%></td>
+				<td><%= phone.color%></td>
+				<td><%= phone.emei%></td>
+				<td><%= phone.price%></td>
+				<td><%= phone.sold_price%></td>
+				<td><%= (phone.sold_price.to_i - phone.price.to_i)/2 %></td>
+
+			</tr>
+		<% end %>			
+	</tbody>
+</table>
