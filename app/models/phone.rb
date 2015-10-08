@@ -1,5 +1,6 @@
 class Phone < ActiveRecord::Base
-  attr_accessible :brand, :color, :emei, :price, :slod_by, :sold_date,:sold_price
+  attr_accessible :brand, :color, :emei, :price, :slod_by, :sold_date,:sold_price,:comment,:storage,:condition
 
   has_one :profit
+  has_many :photos
 end

@@ -1,7 +1,11 @@
 class ProfitsController < ApplicationController
 
 	def index
-		@profits = Profit.where(:user_id=> current_user.id)
+		if current_user.present?
+			@profits = Profit.where(:user_id=> current_user.id)
+		else
+			redirect_to new_user_session_path, :notice=>"Please login first"
+		end	
 	end
 
 	def create 

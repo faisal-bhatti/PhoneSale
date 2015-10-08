@@ -2,6 +2,7 @@
 <table class="table table-striped">
 	<thead>
 		<th>Brand</th>
+		<th>Storage</th>
 		<th>Color</th>
 		<th>IMEI</th>
 		<th>Price</th>
@@ -11,7 +12,8 @@
 	<tbody>
 		<% @phones && @phones.each do |phone| %>
 			<tr>
-				<td><%= phone.brand%></td>
+				<td><%= link_to "#{phone.brand}", phone_path(phone)%></td>
+				<td><%= phone.storage%></td>
 				<td><%= phone.color%></td>
 				<td><%= phone.emei%></td>
 				<td><%= phone.price%></td>

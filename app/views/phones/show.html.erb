@@ -1,0 +1,49 @@
+<style type="text/css">
+	.td_width{
+		width: 20%;
+	}
+</style>
+
+<% if current_user.present? %>
+	<div class="row" style="margin-left:10px;">
+		<div class="login-form">
+			<h4>Product detail</h4>
+			<table class="table table-striped">
+				<tr>
+					<td class="td_width" style="background-color: lightgray;">Brand</td>
+					<td><%= @phone.brand || ''%></td>
+				</tr>
+				<tr>
+					<td class="td_width" style="background-color: lightgray;">Color</td>
+					<td><%= @phone.color || ''%></td>
+				</tr>
+				<tr>
+					<td class="td_width" style="background-color: lightgray;">IMEI#</td>
+					<td><%= @phone.emei || ''%></td>
+				</tr>
+
+				<tr>
+					<td class="td_width" style="background-color: lightgray;">Purchase Price</td>
+					<td><%= @phone.price || ''%></td>
+				</tr>
+				
+				<tr>
+					<td class="td_width" style="background-color: lightgray;">Condition</td>
+					<td><%= @phone.condition || ''%></td>
+				</tr>
+
+				<tr>
+					<td class="td_width" style="background-color: lightgray;">Storage</td>
+					<td><%= @phone.storage || ''%></td>
+				</tr>
+
+				<tr>
+					<td class="td_width" style="background-color: lightgray;">Gen.Comments</td>
+					<td><%= @phone.comment || ''%></td>
+				</tr>
+
+			</table>
+		</div>
+	</div>
+<% end %>
+<%#= link_to '<< Back', users_path, :class=>"btn btn-primary btn-xs" %>

@@ -2,15 +2,23 @@ class PhonesController < ApplicationController
 	respond_to :html, :json
 
 	def index
-		@phones = Phone.where(status: "in-stock")
-		respond_to do |format|
-	        format.html {  }
-	        format.json {  render json: @phones}  
-	    end
+		if current_user.present?
+			@phones = Phone.where(status: "in-stock")
+			respond_to do |format|
+		        format.html {  }
+		        format.json {  render json: @phones}  
+		    end
+		  else
+		  	redirect_to new_user_session_path, :notice=>"Please login first"
+		  end
 	end
 
 	def new
-		@phone = Phone.new
+		if current_user.present?
+			@phone = Phone.new
+		else
+			redirect_to new_user_session_path, :notice=>"Please login first"
+		end
 	end
 
 	def create
@@ -19,6 +27,10 @@ class PhonesController < ApplicationController
 		if @phone.save
 			redirect_to phones_path, notice: 'Successfully saved.'
 		end
+	end
+
+	def show
+		@phone = Phone.find(params[:id])
 	end
 
 	def edit

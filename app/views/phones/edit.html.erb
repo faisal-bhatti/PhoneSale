@@ -49,6 +49,42 @@
             <%= f.text_field :price, class: "left-mar form-control" %>
           </div>
         </div>
+
+        <div class="form-group">
+          <%= f.label "Sold price", class: "col-sm-3 control-label" %>
+          <div class="col-sm-9 ">
+            <%= f.text_field :sold_price, class: "left-mar form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :condition, class: "col-sm-3 control-label" %>
+          <div class="col-sm-9">
+            <select id="slod_by_id" name="phone[condition]">
+              <option>8/10</option>
+              <option>9/10</option>
+              <option>10/10</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "General comments", class: "col-sm-3 control-label" %>
+          <div class="col-sm-9">
+            <%= f.text_area :comment, class: "left-mar",cols: "30", rows: "5", :placeholder=> "write comment here..." %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :storage, class: "col-sm-3 control-label" %>
+          <div class="col-sm-9">
+             <select id="slod_by_id" name="phone[storage]">
+              <option>None</option>
+              <option>16GB</option>
+              <option>32GB</option>
+              <option>64GB</option>
+            </select>
+          </div>
+        </div>
       <div class="col-sm-offset-3">
         <%= f.submit 'Save', class: "btn btn-primary pull-right" %>
       </div>

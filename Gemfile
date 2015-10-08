@@ -50,6 +50,8 @@ gem 'simple_form'
 gem 'activeadmin', " 0.5.1"
 gem 'twitter-bootstrap-rails'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+gem 'carrierwave'
+gem 'carrierwave-dropbox'
 # gem 'mailchimp'
 # gem "mandrill-api", "~> 1.0.42"
 # gem 'mandrill_mailer'
